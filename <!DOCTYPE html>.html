@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário de Resposta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5); /* Fundo personalizado em gradiente */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+      width: 350px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #resposta {
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Formulário de Resposta</h2>
+    <form id="formulario">
+      <input type="text" id="nome" placeholder="Nome" required>
+      <input type="text" id="endereco" placeholder="Endereço" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="date" id="dia" required>
+      <button type="submit">Confirmar</button>
+    </form>
+    <p id="resposta"></p>
+  </div>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const resposta = document.getElementById("resposta");
+
+    formulario.addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita que a página recarregue
+
+      const nome = document.getElementById("nome").value;
+      const endereco = document.getElementById("endereco").value;
+      const email = document.getElementById("email").value;
+      const dia = document.getElementById("dia").value;
+
+      resposta.textContent = `Obrigado, ${nome}! Seus dados foram recebidos.`;
+
+      // Limpar o formulário
+      formulario.reset();
+    });
